@@ -1,5 +1,7 @@
 # Romania Economic Data
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22255140.svg)](https://doi.org/10.5281/zenodo.22255140)
+
 Open datasets containing economic indicators for Romania.
 
 The datasets are collected, cleaned and normalized by **[eCifre](https://ecifre.ro)**, using data published by official Romanian and European institutions. This repository publishes a subset of that data as plain CSV files for reuse outside the eCifre platform.
@@ -69,9 +71,9 @@ The data in `datasets/` is consolidated by a single canonical build ([`scripts/b
 | --- | --- | --- | --- |
 | [Kaggle](https://www.kaggle.com/datasets/stefanvergu/romania-economic-indicators) | [`kaggle/`](kaggle/) | `scripts/publish_kaggle.sh` | Published |
 | [Hugging Face](https://huggingface.co/datasets/ecifre/romania-economic-indicators) | [`huggingface/`](huggingface/) (dataset card + LICENSE; also distributed as Parquet) | `scripts/publish_huggingface.py` | Published |
-| [Zenodo](zenodo/README.md) | [`zenodo/`](zenodo/) (versioned, DOI-bearing snapshots — CSV + Parquet + docs + checksums) | `scripts/publish_zenodo.py` | Not yet published — pending a Zenodo account/token; see [`CITATION.md`](CITATION.md) |
+| [Zenodo](https://doi.org/10.5281/zenodo.22255140) | [`zenodo/`](zenodo/) (versioned, DOI-bearing snapshots — CSV + Parquet + docs + checksums) | `scripts/publish_zenodo.py` | Published — v2026.09, DOI [10.5281/zenodo.22255141](https://doi.org/10.5281/zenodo.22255141) |
 
-`romania_economic_indicators.parquet` is generated from the canonical CSV by [`scripts/csv_to_parquet.py`](scripts/csv_to_parquet.py) — serialization only, no value changes. Schema (11 columns: `indicator`, `indicator_slug`, `date`, `value`, `unit`, `geography`, `frequency`, `source`, `source_url`, `ecifre_url`, `last_updated`), data dictionary, and license reasoning are documented once, at the repo root — [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md) and [`LICENSE_NOTES.md`](LICENSE_NOTES.md) — and referenced from each platform folder rather than duplicated. Citation info (pending a Zenodo DOI): [`CITATION.md`](CITATION.md), [`CITATION.cff`](CITATION.cff).
+`romania_economic_indicators.parquet` is generated from the canonical CSV by [`scripts/csv_to_parquet.py`](scripts/csv_to_parquet.py) — serialization only, no value changes. Schema (11 columns: `indicator`, `indicator_slug`, `date`, `value`, `unit`, `geography`, `frequency`, `source`, `source_url`, `ecifre_url`, `last_updated`), data dictionary, and license reasoning are documented once, at the repo root — [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md) and [`LICENSE_NOTES.md`](LICENSE_NOTES.md) — and referenced from each platform folder rather than duplicated. Citation info: [`CITATION.md`](CITATION.md), [`CITATION.cff`](CITATION.cff).
 
 ## Licensing
 

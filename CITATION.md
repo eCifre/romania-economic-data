@@ -2,31 +2,32 @@
 
 **Machine-readable metadata:** see [`CITATION.cff`](CITATION.cff).
 
-> **DOI pending.** This dataset does not yet have a Zenodo DOI — see the project's release notes for status. The formats below will be updated with the concept DOI and versioned DOI once the first Zenodo release is published; until then, cite the GitHub repository and version as shown.
+This dataset has a permanent Zenodo record with a DOI:
+
+- **Concept DOI** (always resolves to the latest version) — `10.5281/zenodo.22255140` — use this when citing the dataset in general.
+- **Versioned DOI** for the current release, `2026.09` — `10.5281/zenodo.22255141` — use this when citing the exact snapshot you used in a paper or analysis.
+- Record: https://zenodo.org/record/22255141
 
 ## Plain text
 
-eCifre. Romania Economic Indicators. Version 2026.09. https://github.com/eCifre/romania-economic-data
+eCifre. Romania Economic Indicators. Version 2026.09. Zenodo. https://doi.org/10.5281/zenodo.22255141
 
 ## APA
 
-eCifre. (2026). *Romania Economic Indicators* (Version 2026.09) [Data set]. https://github.com/eCifre/romania-economic-data
+eCifre. (2026). *Romania Economic Indicators* (Version 2026.09) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.22255141
 
 ## BibTeX
 
 ```bibtex
-@misc{ecifre_romania_economic_indicators,
+@dataset{ecifre_2026_22255141,
   author       = {eCifre},
   title        = {Romania Economic Indicators},
   year         = {2026},
+  publisher    = {Zenodo},
   version      = {2026.09},
-  url          = {https://github.com/eCifre/romania-economic-data}
+  doi          = {10.5281/zenodo.22255141},
+  url          = {https://doi.org/10.5281/zenodo.22255141}
 }
 ```
 
-## Once a Zenodo DOI exists
-
-- To cite the dataset **in general** (any version), use the **concept DOI** — it always resolves to the latest version.
-- To cite the **exact snapshot** you used in a paper or analysis, use the **versioned DOI** for that specific release (e.g. `2026.09`).
-
-Both formats above will be extended with a `doi:`/DOI line once `scripts/publish_zenodo.py` completes a real release — see [`zenodo/CHANGELOG.md`](zenodo/CHANGELOG.md) for release history.
+To cite the dataset in general rather than this specific version, replace the DOI above with the concept DOI, `10.5281/zenodo.22255140`.

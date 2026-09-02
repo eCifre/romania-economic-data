@@ -130,6 +130,14 @@ print(inflation.to_pandas().tail())
 **eCifre — Romania Economic Indicators**
 https://ecifre.ro
 
+## Citation
+
+This dataset has a permanent, versioned snapshot on Zenodo with a DOI. If you use this dataset, please cite:
+
+> eCifre. Romania Economic Indicators. Zenodo. https://doi.org/10.5281/zenodo.22255140
+
+The DOI above is the concept DOI (always resolves to the latest version); see [CITATION.md](https://github.com/eCifre/romania-economic-data/blob/main/CITATION.md) in the source repository for the versioned DOI, APA and BibTeX formats.
+
 ## License
 
 See [LICENSE](LICENSE) — this dataset aggregates 8 institutions whose own publication terms are not uniform, so no single standard license (CC0, CC-BY, etc.) is asserted. Full reasoning: [LICENSE_NOTES.md](https://github.com/eCifre/romania-economic-data/blob/main/LICENSE_NOTES.md) in the source repository.
