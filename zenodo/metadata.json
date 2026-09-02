@@ -1,0 +1,56 @@
+{
+  "upload_type": "dataset",
+  "title": "Romania Economic Indicators — eCifre",
+  "creators": [
+    {
+      "name": "eCifre"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "eCifre",
+      "type": "Distributor"
+    }
+  ],
+  "description": "<p>A structured and versioned collection of economic indicators for Romania, compiled and normalized by <strong>eCifre</strong> from official Romanian and European public data sources.</p><p>The dataset provides historical time series covering areas such as economic growth, inflation, wages, employment, exchange rates, public finance, demographics, construction, energy and regional (county-level) economic indicators for Romania.</p><p>Interactive visualizations, current values, indicator methodology and economic context are available at <a href=\"https://ecifre.ro\">https://ecifre.ro</a>.</p><p>This Zenodo record represents a versioned snapshot of the public eCifre economic dataset. eCifre's own data pipeline remains the live, continuously-updated source — not Zenodo.</p><p>The original institutions listed in DATA_SOURCES.md remain the authoritative sources for the underlying statistics; eCifre collects, normalizes and republishes what they publish, without re-deriving or re-estimating published figures.</p>",
+  "access_right": "open",
+  "license": "other-open",
+  "language": "eng",
+  "keywords": [
+    "Romania",
+    "Romanian economy",
+    "economic indicators",
+    "economic data",
+    "statistics",
+    "GDP",
+    "inflation",
+    "unemployment",
+    "wages",
+    "public finance",
+    "economic time series",
+    "open data",
+    "data science"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/eCifre/romania-economic-data",
+      "relation": "isDerivedFrom",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "https://ecifre.ro",
+      "relation": "isSupplementTo"
+    },
+    {
+      "identifier": "https://huggingface.co/datasets/ecifre/romania-economic-indicators",
+      "relation": "isIdenticalTo",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "https://www.kaggle.com/datasets/stefanvergu/romania-economic-indicators",
+      "relation": "isIdenticalTo",
+      "resource_type": "dataset"
+    }
+  ],
+  "notes": "Generated from eCifre's public data pipeline (scripts/build_canonical_dataset.py in the source repository). See CHANGELOG.md in this upload for what changed in this specific version."
+}

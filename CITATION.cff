@@ -1,0 +1,30 @@
+# DOI / identifiers intentionally omitted: no Zenodo DOI exists yet. Once the
+# first Zenodo release is published, scripts/publish_zenodo.py adds an
+# `identifiers:` block here (concept DOI + versioned DOI) — see CHANGELOG.md
+# and the project's final report for what's still pending.
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it using the metadata from this file."
+title: "Romania Economic Indicators — eCifre"
+type: dataset
+authors:
+  - name: "eCifre"
+    website: "https://ecifre.ro"
+repository-code: "https://github.com/eCifre/romania-economic-data"
+url: "https://ecifre.ro"
+abstract: "A structured and versioned collection of economic indicators for Romania, compiled and normalized by eCifre from official Romanian and European public data sources. Covers GDP, inflation, wages, employment, exchange rates, public finance, demographics, construction, energy and county-level indicators."
+keywords:
+  - Romania
+  - Romanian economy
+  - economic indicators
+  - economic data
+  - statistics
+  - GDP
+  - inflation
+  - unemployment
+  - wages
+  - public finance
+  - economic time series
+  - open data
+license-url: "https://github.com/eCifre/romania-economic-data/blob/main/LICENSE_NOTES.md"
+version: "2026.09"
+date-released: "2026-09-02"

@@ -8,6 +8,9 @@ KAGGLE_KEY
 HF_TOKEN
 .huggingface/
 
+# Zenodo credentials — never commit these.
+ZENODO_ACCESS_TOKEN
+
 # Python
 __pycache__/
 *.pyc
@@ -21,3 +24,4 @@ venv/
 # never manually maintained, generated fresh from build/ every time).
 kaggle/.publish_stage/
 huggingface/build/
+zenodo/build/

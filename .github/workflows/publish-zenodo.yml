@@ -1,0 +1,79 @@
+name: Publish to Zenodo (manual)
+
+# Deliberately manual-only (workflow_dispatch). Not chained after Kaggle or
+# Hugging Face publishing, and not run on a schedule — each Zenodo release
+# is a permanent, citable, DOI-bearing snapshot and should be a deliberate
+# choice, verified once manually before any future automation.
+#
+# Required repository secret (Settings -> Secrets and variables -> Actions),
+# not currently configured:
+#   ZENODO_ACCESS_TOKEN — a Zenodo personal access token
+#                          (zenodo.org/account/settings/applications/tokens/new/,
+#                          scopes: deposit:write, deposit:actions)
+#
+# scripts/publish_zenodo.py skips the release entirely (no new version, no
+# DOI consumed) if the canonical export hasn't changed since the last
+# published version, unless force is set below.
+#
+# For the very first release, run this against sandbox.zenodo.org first
+# (sandbox: true) with a sandbox token, confirm the record looks right,
+# then run again with sandbox: false and a production token for the real,
+# citable release.
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version, e.g. 2026.09 (optional — defaults to the current YYYY.MM)"
+        required: false
+        type: string
+      sandbox:
+        description: "Publish to sandbox.zenodo.org instead of production"
+        required: false
+        type: boolean
+        default: false
+      force:
+        description: "Publish even if the canonical export is unchanged"
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests pyarrow
+
+      - name: Publish
+        env:
+          ZENODO_ACCESS_TOKEN: ${{ secrets.ZENODO_ACCESS_TOKEN }}
+        run: |
+          args=()
+          if [ -n "${{ inputs.version }}" ]; then
+            args+=(--version "${{ inputs.version }}")
+          fi
+          if [ "${{ inputs.sandbox }}" = "true" ]; then
+            args+=(--sandbox)
+          fi
+          if [ "${{ inputs.force }}" = "true" ]; then
+            args+=(--force)
+          fi
+          python3 scripts/publish_zenodo.py "${args[@]}"
+
+      - name: Commit updated Zenodo record state
+        if: success()
+        run: |
+          if [ -f zenodo/.zenodo_record.json ] && ! git diff --quiet zenodo/.zenodo_record.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add zenodo/.zenodo_record.json
+            git commit -m "Record Zenodo release ${{ inputs.version }}"
+            git push
+          fi
