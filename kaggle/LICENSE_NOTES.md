@@ -1,8 +1,8 @@
-# License decision needed before publishing to Kaggle
+# License decision — resolved 2026-09-02
 
-Kaggle requires every dataset to declare a license in `dataset-metadata.json`. `romania_economic_indicators.csv` aggregates data from **8 different institutions**, and their own published terms are not uniform — so a single license cannot be picked automatically without either overstating or understating what we're actually allowed to grant. This file exists so that decision is made deliberately, not by default.
+Kaggle requires every dataset to declare a license in `dataset-metadata.json`. `romania_economic_indicators.csv` aggregates data from **8 different institutions**, and their own published terms are not uniform — so a single license couldn't be picked automatically without either overstating or understating what we're actually allowed to grant. This file documents the analysis and the decision that was made deliberately, not by default.
 
-The current `dataset-metadata.json` has `licenses[0].name` set to the placeholder string `"DECISION-NEEDED-see-kaggle/LICENSE_NOTES.md"`, which is **not a valid Kaggle license identifier on purpose** — `kaggle datasets create`/`version` will reject it until it's replaced with a real choice. That's intentional: it blocks an accidental publish with the wrong license.
+**Decision: `licenses[0].name` is set to `"other"`**, with the source-by-source breakdown below reproduced in `dataset-metadata.json`'s `description` field (Kaggle's own guidance for "Other" is to spell out the actual terms in the description, which is what that field does).
 
 ## Sources actually present in this dataset
 
@@ -25,8 +25,6 @@ None of these sources are BVB or OPCOM (which carry explicit written-consent-req
 2. **CC BY 4.0** — reasonably defensible for the Eurostat/ENTSO-E portion (both effectively permit this), and arguably fine for eCifre's own normalization/structuring work on top of the "date publice" sources, but this would be **asserting** an open license on INSSE/BNR/MFIN/ANOFM/ANRE_GAS/ONRC data that those institutions themselves haven't explicitly granted.
 3. **Contact each Romanian institution to confirm reuse terms**, then apply the confirmed license. Most correct, slowest.
 
-## Recommendation
+## Decision
 
-Option 1 ("Other", with the source-by-source table above in the dataset description) is the option that doesn't require asserting anything we can't back up. If you'd rather move faster with option 2, that's a judgment call I'd rather you make explicitly than have it applied silently — happy to update `dataset-metadata.json` and the README once you've decided.
-
-**Once decided:** replace `"DECISION-NEEDED-see-kaggle/LICENSE_NOTES.md"` in `kaggle/dataset-metadata.json` with the real Kaggle license identifier (e.g. `"CC-BY-4.0"`, `"other"`, `"unknown"` — see `kaggle datasets list --licenses` or the [Kaggle license list](https://github.com/Kaggle/kaggle-api/blob/main/KaggleDatasetsSchema.json) for the accepted values).
+Option 1 ("Other", with the source-by-source table above reproduced in the dataset description) was chosen — it doesn't require asserting a reuse right that INSSE, BNR, MFIN, ANOFM, ANRE_GAS or ONRC haven't explicitly granted. If this ever needs revisiting (e.g. after confirming an explicit license with one of the Romanian institutions, per option 3 above), update both `licenses[0].name` and the corresponding paragraph in `description` in `kaggle/dataset-metadata.json`.
