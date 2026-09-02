@@ -65,13 +65,28 @@ echo
 echo "== Validate =="
 python3 "$REPO_ROOT/scripts/validate_dataset.py" "$BUILD_FILE"
 
+# dataset-metadata.json's resources[].path is "romania_economic_indicators.csv"
+# (flat, no subfolder) but the build writes to kaggle/build/ -- so assemble a
+# flat staging folder for `kaggle datasets ...` rather than pointing it at
+# kaggle/ directly, which would upload the CSV nested under "build/".
+STAGE_DIR="$REPO_ROOT/kaggle/.publish_stage"
+rm -rf "$STAGE_DIR"
+mkdir -p "$STAGE_DIR"
+cp "$METADATA_FILE" "$STAGE_DIR/"
+cp "$BUILD_FILE" "$STAGE_DIR/"
+cp "$REPO_ROOT/kaggle/README.md" "$STAGE_DIR/"
+cp "$REPO_ROOT/kaggle/DATA_DICTIONARY.md" "$STAGE_DIR/"
+cp "$REPO_ROOT/kaggle/LICENSE_NOTES.md" "$STAGE_DIR/"
+
 echo
 echo "== Publish ($mode) =="
 if [[ "$mode" == "create" ]]; then
-  kaggle datasets create -p "$REPO_ROOT/kaggle" --dir-mode zip
+  kaggle datasets create -p "$STAGE_DIR"
 else
-  kaggle datasets version -p "$REPO_ROOT/kaggle" --dir-mode zip -m "$2"
+  kaggle datasets version -p "$STAGE_DIR" -m "$2"
 fi
+
+rm -rf "$STAGE_DIR"
 
 echo
 echo "Done."

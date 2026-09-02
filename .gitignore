@@ -12,3 +12,6 @@ venv/
 
 # OS noise
 .DS_Store
+
+# Kaggle publish staging (assembled and removed by scripts/publish_kaggle.sh)
+kaggle/.publish_stage/
