@@ -61,6 +61,10 @@ eCifre standardizes data from different official sources to improve consistency 
 
 Detailed, per-indicator methodology notes are available on each indicator's `ecifre_url`, and a growing reference set is being documented in [economic-indicators-romania](https://github.com/eCifre/economic-indicators-romania).
 
+## Kaggle
+
+A single-file, consolidated export of this data (28 indicators, one row per indicator/geography/date observation) is packaged under [`kaggle/`](kaggle/) for publishing to Kaggle. See [`kaggle/README.md`](kaggle/README.md) for the schema and [`scripts/build_kaggle_dataset.py`](scripts/build_kaggle_dataset.py) to regenerate it — the build reads only files already in this repository, so anyone can reproduce it. Publishing itself is gated on a license decision (see [`kaggle/LICENSE_NOTES.md`](kaggle/LICENSE_NOTES.md)) and hasn't happened yet.
+
 ## Licensing
 
 The underlying data is published by Romanian and European public institutions under varying terms — some sources place their data fully in the public domain, others require attribution, and a few are more restrictive. We have **not** applied a blanket license (like CC0 or MIT) to the datasets in this repository, because that would overstate what we can legally grant for every source. See [DATA_SOURCES.md](DATA_SOURCES.md) for source-by-source notes, and check the linked source before redistributing a dataset further.

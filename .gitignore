@@ -1,0 +1,14 @@
+# Kaggle credentials — never commit these.
+kaggle.json
+.kaggle/
+KAGGLE_USERNAME
+KAGGLE_KEY
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS noise
+.DS_Store

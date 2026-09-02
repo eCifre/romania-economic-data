@@ -1,0 +1,30 @@
+{
+  "title": "Romania Economic Indicators",
+  "id": "REPLACE_WITH_KAGGLE_OWNER_SLUG/romania-economic-indicators",
+  "subtitle": "Historical Romanian economic data from official sources",
+  "licenses": [
+    {
+      "name": "DECISION-NEEDED-see-kaggle/LICENSE_NOTES.md"
+    }
+  ],
+  "keywords": [
+    "romania",
+    "economics",
+    "economic-data",
+    "statistics",
+    "gdp",
+    "inflation",
+    "unemployment",
+    "wages",
+    "finance",
+    "open-data",
+    "europe",
+    "time-series"
+  ],
+  "resources": [
+    {
+      "path": "romania_economic_indicators.csv",
+      "description": "Consolidated time series for all indicators: indicator, indicator_slug, date, value, unit, geography, frequency, source, source_url, ecifre_url, last_updated."
+    }
+  ]
+}

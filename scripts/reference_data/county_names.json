@@ -1,0 +1,212 @@
+{
+  "RO-AB": {
+    "name": "Alba",
+    "name_ascii": "Alba",
+    "slug": "alba"
+  },
+  "RO-AR": {
+    "name": "Arad",
+    "name_ascii": "Arad",
+    "slug": "arad"
+  },
+  "RO-AG": {
+    "name": "Argeș",
+    "name_ascii": "Arges",
+    "slug": "arges"
+  },
+  "RO-BC": {
+    "name": "Bacău",
+    "name_ascii": "Bacau",
+    "slug": "bacau"
+  },
+  "RO-BH": {
+    "name": "Bihor",
+    "name_ascii": "Bihor",
+    "slug": "bihor"
+  },
+  "RO-BN": {
+    "name": "Bistrița-Năsăud",
+    "name_ascii": "Bistrita-Nasaud",
+    "slug": "bistrita-nasaud"
+  },
+  "RO-BT": {
+    "name": "Botoșani",
+    "name_ascii": "Botosani",
+    "slug": "botosani"
+  },
+  "RO-BV": {
+    "name": "Brașov",
+    "name_ascii": "Brasov",
+    "slug": "brasov"
+  },
+  "RO-BR": {
+    "name": "Brăila",
+    "name_ascii": "Braila",
+    "slug": "braila"
+  },
+  "RO-B": {
+    "name": "București",
+    "name_ascii": "Bucuresti",
+    "slug": "bucuresti"
+  },
+  "RO-BZ": {
+    "name": "Buzău",
+    "name_ascii": "Buzau",
+    "slug": "buzau"
+  },
+  "RO-CS": {
+    "name": "Caraș-Severin",
+    "name_ascii": "Caras-Severin",
+    "slug": "caras-severin"
+  },
+  "RO-CJ": {
+    "name": "Cluj",
+    "name_ascii": "Cluj",
+    "slug": "cluj"
+  },
+  "RO-CT": {
+    "name": "Constanța",
+    "name_ascii": "Constanta",
+    "slug": "constanta"
+  },
+  "RO-CV": {
+    "name": "Covasna",
+    "name_ascii": "Covasna",
+    "slug": "covasna"
+  },
+  "RO-CL": {
+    "name": "Călărași",
+    "name_ascii": "Calarasi",
+    "slug": "calarasi"
+  },
+  "RO-DJ": {
+    "name": "Dolj",
+    "name_ascii": "Dolj",
+    "slug": "dolj"
+  },
+  "RO-DB": {
+    "name": "Dâmbovița",
+    "name_ascii": "Dambovita",
+    "slug": "dambovita"
+  },
+  "RO-GL": {
+    "name": "Galați",
+    "name_ascii": "Galati",
+    "slug": "galati"
+  },
+  "RO-GR": {
+    "name": "Giurgiu",
+    "name_ascii": "Giurgiu",
+    "slug": "giurgiu"
+  },
+  "RO-GJ": {
+    "name": "Gorj",
+    "name_ascii": "Gorj",
+    "slug": "gorj"
+  },
+  "RO-HR": {
+    "name": "Harghita",
+    "name_ascii": "Harghita",
+    "slug": "harghita"
+  },
+  "RO-HD": {
+    "name": "Hunedoara",
+    "name_ascii": "Hunedoara",
+    "slug": "hunedoara"
+  },
+  "RO-IL": {
+    "name": "Ialomița",
+    "name_ascii": "Ialomita",
+    "slug": "ialomita"
+  },
+  "RO-IS": {
+    "name": "Iași",
+    "name_ascii": "Iasi",
+    "slug": "iasi"
+  },
+  "RO-IF": {
+    "name": "Ilfov",
+    "name_ascii": "Ilfov",
+    "slug": "ilfov"
+  },
+  "RO-MM": {
+    "name": "Maramureș",
+    "name_ascii": "Maramures",
+    "slug": "maramures"
+  },
+  "RO-MH": {
+    "name": "Mehedinți",
+    "name_ascii": "Mehedinti",
+    "slug": "mehedinti"
+  },
+  "RO-MS": {
+    "name": "Mureș",
+    "name_ascii": "Mures",
+    "slug": "mures"
+  },
+  "RO-NT": {
+    "name": "Neamț",
+    "name_ascii": "Neamt",
+    "slug": "neamt"
+  },
+  "RO-OT": {
+    "name": "Olt",
+    "name_ascii": "Olt",
+    "slug": "olt"
+  },
+  "RO-PH": {
+    "name": "Prahova",
+    "name_ascii": "Prahova",
+    "slug": "prahova"
+  },
+  "RO-SM": {
+    "name": "Satu Mare",
+    "name_ascii": "Satu Mare",
+    "slug": "satu-mare"
+  },
+  "RO-SB": {
+    "name": "Sibiu",
+    "name_ascii": "Sibiu",
+    "slug": "sibiu"
+  },
+  "RO-SV": {
+    "name": "Suceava",
+    "name_ascii": "Suceava",
+    "slug": "suceava"
+  },
+  "RO-SJ": {
+    "name": "Sălaj",
+    "name_ascii": "Salaj",
+    "slug": "salaj"
+  },
+  "RO-TR": {
+    "name": "Teleorman",
+    "name_ascii": "Teleorman",
+    "slug": "teleorman"
+  },
+  "RO-TM": {
+    "name": "Timiș",
+    "name_ascii": "Timis",
+    "slug": "timis"
+  },
+  "RO-TL": {
+    "name": "Tulcea",
+    "name_ascii": "Tulcea",
+    "slug": "tulcea"
+  },
+  "RO-VS": {
+    "name": "Vaslui",
+    "name_ascii": "Vaslui",
+    "slug": "vaslui"
+  },
+  "RO-VN": {
+    "name": "Vrancea",
+    "name_ascii": "Vrancea",
+    "slug": "vrancea"
+  },
+  "RO-VL": {
+    "name": "Vâlcea",
+    "name_ascii": "Valcea",
+    "slug": "valcea"
+  }
+}

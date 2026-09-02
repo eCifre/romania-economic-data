@@ -1,0 +1,170 @@
+{
+  "inflatie-anuala-ro": {
+    "frequency": "monthly",
+    "unit": "Indice (aceeași lună anul anterior=100)",
+    "source": "INSSE",
+    "name": "Inflație anuală (România)"
+  },
+  "inflatie-lunara-ro": {
+    "frequency": "monthly",
+    "unit": "Indice (luna anterioară=100)",
+    "source": "INSSE",
+    "name": "Inflație lunară (România)"
+  },
+  "pib-crestere-ro": {
+    "frequency": "quarterly",
+    "unit": "% față de aceeași perioadă anul trecut",
+    "source": "EUROSTAT",
+    "name": "Creșterea PIB (România)"
+  },
+  "pib-real-anual-ro": {
+    "frequency": "annual",
+    "unit": "Milioane lei (prețuri comparabile)",
+    "source": "INSSE",
+    "name": "PIB real anual"
+  },
+  "pib-nominal-anual-ro": {
+    "frequency": "annual",
+    "unit": "Milioane lei",
+    "source": "INSSE",
+    "name": "PIB nominal anual"
+  },
+  "salariu-mediu-brut-ro": {
+    "frequency": "monthly",
+    "unit": "Lei",
+    "source": "INSSE",
+    "name": "Salariul mediu brut (România)"
+  },
+  "salariu-mediu-net-ro": {
+    "frequency": "monthly",
+    "unit": "Lei",
+    "source": "INSSE",
+    "name": "Salariul mediu net (România)"
+  },
+  "salariu-minim-ro": {
+    "frequency": "irregular",
+    "unit": "RON/lună",
+    "source": "EUROSTAT",
+    "name": "Salariul minim brut pe economie"
+  },
+  "somaj-bim-ro": {
+    "frequency": "monthly",
+    "unit": "%",
+    "source": "INSSE",
+    "name": "Rata șomajului BIM (România)"
+  },
+  "somaj-inregistrat-ro": {
+    "frequency": "monthly",
+    "unit": "%",
+    "source": "ANOFM",
+    "name": "Rata șomajului înregistrat (România)"
+  },
+  "curs-eur-ron": {
+    "frequency": "daily",
+    "unit": "RON",
+    "source": "BNR",
+    "name": "Curs EUR/RON"
+  },
+  "datorie-publica-ro": {
+    "frequency": "annual",
+    "unit": "% din PIB",
+    "source": "EUROSTAT",
+    "name": "Datoria publică (România)"
+  },
+  "deficit-bugetar-ro-mfin": {
+    "frequency": "monthly",
+    "unit": "Milioane lei",
+    "source": "MFIN",
+    "name": "Deficit bugetar (România, Ministerul Finanțelor)"
+  },
+  "venituri-bugetare-ro": {
+    "frequency": "monthly",
+    "unit": "Milioane lei",
+    "source": "MFIN",
+    "name": "Venituri bugetare (România)"
+  },
+  "cheltuieli-bugetare-ro": {
+    "frequency": "monthly",
+    "unit": "Milioane lei",
+    "source": "MFIN",
+    "name": "Cheltuieli bugetare (România)"
+  },
+  "indice-cost-constructii-ro": {
+    "frequency": "quarterly",
+    "unit": "Indice (2021=100)",
+    "source": "EUROSTAT",
+    "name": "Indice cost construcții"
+  },
+  "consum-gaze-naturale-ro": {
+    "frequency": "monthly",
+    "unit": "MWh",
+    "source": "ANRE_GAS",
+    "name": "Consum gaze naturale"
+  },
+  "productie-gaze-naturale-ro": {
+    "frequency": "monthly",
+    "unit": "MWh",
+    "source": "ANRE_GAS",
+    "name": "Producție gaze naturale"
+  },
+  "pret-gaze-naturale-pentru-gospodarii-ro": {
+    "frequency": "irregular",
+    "unit": "RON/kWh",
+    "source": "EUROSTAT",
+    "name": "Preț gaze naturale pentru gospodării"
+  },
+  "consum-anual-de-energie-electrica-ro": {
+    "frequency": "annual",
+    "unit": "GWh",
+    "source": "EUROSTAT",
+    "name": "Consum anual de energie electrică"
+  },
+  "entsoe-pret-day-ahead-ro": {
+    "frequency": "daily",
+    "unit": "EUR/MWh",
+    "source": "ENTSOE",
+    "name": "Preț day-ahead energie electrică (România, ENTSO-E)"
+  },
+  "populatie-judete-ro": {
+    "frequency": "annual",
+    "unit": "Număr persoane",
+    "source": "INSSE",
+    "name": "Populația pe județe (România)"
+  },
+  "populatie-dependenta-judete-ro": {
+    "frequency": "annual",
+    "unit": "Număr persoane",
+    "source": "INSSE",
+    "name": "Populația dependentă demografic pe județe"
+  },
+  "autorizatii-de-construire-pe-judete-ro": {
+    "frequency": "monthly",
+    "unit": "Numar",
+    "source": "INSSE",
+    "name": "Autorizații de construire pe județe"
+  },
+  "locuinte-finalizate-pe-judete-ro": {
+    "frequency": "annual",
+    "unit": "Numar",
+    "source": "INSSE",
+    "name": "Locuințe finalizate pe județe"
+  },
+  "firme-infiintate-judete-ro": {
+    "frequency": "monthly",
+    "unit": "Număr",
+    "source": "ONRC",
+    "name": "Firme înființate pe județe"
+  },
+  "pib-pe-judete-ro": {
+    "frequency": "annual",
+    "unit": "Milioane lei",
+    "source": "INSSE",
+    "name": "PIB pe județe"
+  },
+  "rata-natalitate-judete-ro": {
+    "frequency": "annual",
+    "unit": "Nascuti vii la 1000 locuitori",
+    "source": "INSSE",
+    "name": "Rata de natalitate pe județe"
+  }
+}
