@@ -1,0 +1,40 @@
+name: Build and validate Kaggle export
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "datasets/**"
+      - "scripts/**"
+      - "kaggle/dataset-metadata.json"
+  pull_request:
+    paths:
+      - "datasets/**"
+      - "scripts/**"
+      - "kaggle/dataset-metadata.json"
+  workflow_dispatch: {}
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate source datasets
+        run: python3 scripts/validate_dataset.py
+
+      - name: Build consolidated Kaggle export
+        run: python3 scripts/build_kaggle_dataset.py
+
+      - name: Validate consolidated export
+        run: python3 scripts/validate_dataset.py kaggle/build/romania_economic_indicators.csv
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: romania_economic_indicators
+          path: kaggle/build/romania_economic_indicators.csv

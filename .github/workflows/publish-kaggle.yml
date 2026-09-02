@@ -1,0 +1,55 @@
+name: Publish to Kaggle (manual)
+
+# Deliberately manual-only (workflow_dispatch). This is NOT wired to run on
+# push — publishing to Kaggle is a one-way, externally-visible action and
+# should be a deliberate choice each time, not an automatic side effect of
+# merging to main.
+#
+# Required repository secrets (Settings -> Secrets and variables -> Actions),
+# not currently configured:
+#   KAGGLE_USERNAME  — the Kaggle account or organization used to publish
+#   KAGGLE_KEY       — that account's Kaggle API key
+#
+# Also requires kaggle/dataset-metadata.json to have its two placeholders
+# resolved first (owner slug in "id", and a real license — see
+# kaggle/LICENSE_NOTES.md). scripts/publish_kaggle.sh checks both and will
+# fail the run with a clear message if either is still a placeholder.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "create (first-ever publish) or version (update an existing dataset)"
+        required: true
+        type: choice
+        options:
+          - create
+          - version
+      message:
+        description: "Version message (required when mode = version)"
+        required: false
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Kaggle CLI
+        run: pip install kaggle
+
+      - name: Publish
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+        run: |
+          if [ "${{ inputs.mode }}" = "version" ]; then
+            scripts/publish_kaggle.sh version "${{ inputs.message }}"
+          else
+            scripts/publish_kaggle.sh create
+          fi
