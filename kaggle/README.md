@@ -87,25 +87,24 @@ Publishing requires the Kaggle CLI, authenticated locally — this repository ne
 
 ```bash
 pipx install kaggle   # or: python3 -m venv .venv && .venv/bin/pip install kaggle
-
-# Get an API token from https://www.kaggle.com/settings -> API -> Create New Token,
-# which downloads kaggle.json. Then either:
-mkdir -p ~/.kaggle && mv ~/Downloads/kaggle.json ~/.kaggle/kaggle.json && chmod 600 ~/.kaggle/kaggle.json
-# or export KAGGLE_USERNAME and KAGGLE_KEY as environment variables instead.
 ```
 
-Before the first real publish, resolve the two placeholders in `dataset-metadata.json`:
-- `"id"` — replace `REPLACE_WITH_KAGGLE_OWNER_SLUG` with the real Kaggle username or organization slug.
-- `"licenses"` — replace the `DECISION-NEEDED-...` placeholder per [LICENSE_NOTES.md](LICENSE_NOTES.md).
+Current Kaggle CLI versions (2.x) use a single API token rather than the older username+key pair. Generate one at https://www.kaggle.com/settings -> API -> Create New Token, then either:
 
-Then:
+```bash
+export KAGGLE_API_TOKEN=<token>
+```
+
+or save it to `~/.kaggle/access_token` instead of exporting it every session. (The older `~/.kaggle/kaggle.json` with `KAGGLE_USERNAME`/`KAGGLE_KEY` still works too, if that's what you already have.)
+
+`dataset-metadata.json`'s owner (`stefanvergu` — Kaggle has suspended organization creation platform-wide, so this publishes under a personal account rather than an eCifre org) and license (`"other"`, with the source-by-source terms spelled out in the `description` field — see [LICENSE_NOTES.md](LICENSE_NOTES.md) for why) are already resolved. Then:
 
 ```bash
 scripts/publish_kaggle.sh create              # first-ever publish
 scripts/publish_kaggle.sh version "message"    # later updates
 ```
 
-Both build, validate, and refuse to run if either placeholder is still unresolved or no Kaggle credentials are found.
+Both build and validate first, and refuse to run if no Kaggle credentials are found.
 
 ## About eCifre
 

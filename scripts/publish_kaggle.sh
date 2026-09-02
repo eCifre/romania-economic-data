@@ -2,8 +2,9 @@
 # Build, validate, and publish the eCifre Kaggle dataset.
 #
 # Requires the Kaggle CLI to already be installed and authenticated in this
-# environment (either ~/.kaggle/kaggle.json, or KAGGLE_USERNAME + KAGGLE_KEY
-# environment variables). This script never reads or writes credentials
+# environment: KAGGLE_API_TOKEN (current single-token auth), or
+# ~/.kaggle/access_token, or the older KAGGLE_USERNAME + KAGGLE_KEY pair /
+# ~/.kaggle/kaggle.json. This script never reads or writes credentials
 # itself — see kaggle/README.md and the repository README for setup.
 #
 # Usage:
@@ -36,9 +37,12 @@ if ! command -v kaggle >/dev/null 2>&1; then
   exit 1
 fi
 
-if [[ -z "${KAGGLE_USERNAME:-}${KAGGLE_KEY:-}" && ! -f "$HOME/.kaggle/kaggle.json" ]]; then
-  echo "ERROR: no Kaggle credentials found (no \$HOME/.kaggle/kaggle.json and no" >&2
-  echo "KAGGLE_USERNAME/KAGGLE_KEY environment variables). See kaggle/README.md." >&2
+if [[ -z "${KAGGLE_API_TOKEN:-}${KAGGLE_USERNAME:-}${KAGGLE_KEY:-}" \
+      && ! -f "$HOME/.kaggle/access_token" \
+      && ! -f "$HOME/.kaggle/kaggle.json" ]]; then
+  echo "ERROR: no Kaggle credentials found (checked \$KAGGLE_API_TOKEN," >&2
+  echo "\$KAGGLE_USERNAME/\$KAGGLE_KEY, \$HOME/.kaggle/access_token, and" >&2
+  echo "\$HOME/.kaggle/kaggle.json). See kaggle/README.md." >&2
   exit 1
 fi
 
