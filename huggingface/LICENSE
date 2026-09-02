@@ -1,0 +1,41 @@
+Romania Economic Indicators — License
+
+This dataset aggregates data from 8 official institutions whose own publication
+terms are not uniform. No single standard license (CC0, CC-BY, ODbL, etc.) is
+asserted for the dataset as a whole, because that would overstate what has
+been explicitly granted by every source. Instead, the terms stated by each
+source are reproduced below, as documented in eCifre's public data pipeline:
+https://github.com/eCifre/romania-economic-data/blob/main/LICENSE_NOTES.md
+
+Sources present in this dataset:
+
+- INSSE (Institutul National de Statistica) — published as public data;
+  INSSE does not state an explicit open-reuse license.
+- BNR (Banca Nationala a Romaniei) — published as public data; no explicit
+  reuse license stated.
+- MFIN (Ministerul Finantelor) — published as public data; no explicit
+  reuse license stated.
+- ANOFM (Agentia Nationala pentru Ocuparea Fortei de Munca) — published as
+  public data; no explicit reuse license stated.
+- ANRE (Autoritatea Nationala de Reglementare in Domeniul Energiei) —
+  published as public data; no explicit reuse license stated.
+- ONRC (Oficiul National al Registrului Comertului) — published as public
+  data; no explicit reuse license stated.
+- Eurostat — (c) European Union, 1995 - today. Eurostat's standard reuse
+  policy (Commission Decision 2011/833/EU) permits free reuse, including
+  commercially, with attribution.
+- ENTSO-E Transparency Platform — reuse permitted under EU Regulation
+  543/2013, which mandates the platform's data be public.
+
+None of the sources above are known to carry redistribution restrictions.
+Two sources eCifre uses elsewhere (Bursa de Valori Bucuresti / BVB, and
+OPCOM) do carry explicit written-consent-required restrictions and are
+deliberately excluded from this dataset and from every public eCifre export.
+
+If you plan to redistribute this data further, please check source_url for
+the specific rows you are using, and confirm current terms directly with
+the relevant institution.
+
+Attribution is appreciated:
+eCifre — Romania Economic Indicators
+https://ecifre.ro

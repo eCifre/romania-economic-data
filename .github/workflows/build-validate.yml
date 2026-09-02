@@ -1,4 +1,4 @@
-name: Build and validate Kaggle export
+name: Build and validate canonical export
 
 on:
   push:
@@ -7,11 +7,13 @@ on:
       - "datasets/**"
       - "scripts/**"
       - "kaggle/dataset-metadata.json"
+      - "huggingface/**"
   pull_request:
     paths:
       - "datasets/**"
       - "scripts/**"
       - "kaggle/dataset-metadata.json"
+      - "huggingface/**"
   workflow_dispatch: {}
 
 jobs:
@@ -24,17 +26,25 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Parquet dependency
+        run: pip install pyarrow
+
       - name: Validate source datasets
         run: python3 scripts/validate_dataset.py
 
-      - name: Build consolidated Kaggle export
-        run: python3 scripts/build_kaggle_dataset.py
+      - name: Build canonical consolidated export
+        run: python3 scripts/build_canonical_dataset.py
 
       - name: Validate consolidated export
-        run: python3 scripts/validate_dataset.py kaggle/build/romania_economic_indicators.csv
+        run: python3 scripts/validate_dataset.py build/romania_economic_indicators.csv
 
-      - name: Upload build artifact
+      - name: Convert to Parquet
+        run: python3 scripts/csv_to_parquet.py
+
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: romania_economic_indicators
-          path: kaggle/build/romania_economic_indicators.csv
+          path: |
+            build/romania_economic_indicators.csv
+            build/romania_economic_indicators.parquet

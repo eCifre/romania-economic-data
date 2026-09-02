@@ -1,6 +1,6 @@
 # Data Dictionary
 
-Columns in `build/romania_economic_indicators.csv`.
+Columns in the canonical export, `build/romania_economic_indicators.csv` (also distributed as `romania_economic_indicators.parquet` — same schema, same values, only the serialization differs).
 
 | Column | Type | Description |
 | --- | --- | --- |
@@ -11,7 +11,7 @@ Columns in `build/romania_economic_indicators.csv`.
 | `unit` | string | Unit of measurement (e.g. `Lei`, `%`, `RON`, `Milioane lei`) |
 | `geography` | string | `Romania` for national-level indicators, or a Romanian county name (ASCII, diacritics removed — e.g. `Cluj`, `Timis`, `Bucuresti`) for county-level indicators |
 | `frequency` | string | `daily`, `monthly`, `quarterly`, `annual`, or `irregular` |
-| `source` | string | Source institution's short code (e.g. `INSSE`, `BNR`, `EUROSTAT`) — see [README.md](README.md#sources) for full names |
+| `source` | string | Source institution's short code (e.g. `INSSE`, `BNR`, `EUROSTAT`) — see [README.md](README.md#data-sources) for full names |
 | `source_url` | string | The source institution's website |
 | `ecifre_url` | string | The indicator's page on eCifre — includes interactive chart, methodology and context |
 | `last_updated` | date (`YYYY-MM-DD`) | Date eCifre's pipeline last successfully refreshed this indicator from its source |

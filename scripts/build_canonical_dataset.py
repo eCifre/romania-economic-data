@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
-"""Build the consolidated Kaggle export from the public per-indicator CSVs.
+"""Build the single canonical consolidated export from the public per-indicator CSVs.
 
-Reads every CSV under datasets/, normalizes geography to a human-readable
-name, attaches indicator_slug and frequency, and writes a single sorted
-file to kaggle/build/romania_economic_indicators.csv.
+This is the ONE build step shared by every distribution platform (GitHub
+itself, Kaggle, Hugging Face, and later Zenodo) — none of them re-derive or
+re-normalize the data independently. Reads every CSV under datasets/,
+normalizes geography to a human-readable name, attaches indicator_slug and
+frequency, and writes a single sorted file to
+build/romania_economic_indicators.csv.
+
+Platform-specific scripts (scripts/publish_kaggle.sh,
+scripts/publish_huggingface.py, ...) only stage/package/upload this file —
+they must not re-implement any of the normalization above.
 
 This script only reads files already published in this repository
 (datasets/) plus the small reference tables in scripts/reference_data/
@@ -13,7 +20,7 @@ network API and does not touch eCifre's database, so it can be re-run by
 anyone who has cloned this repository.
 
 Usage:
-    python3 scripts/build_kaggle_dataset.py
+    python3 scripts/build_canonical_dataset.py
 """
 
 from __future__ import annotations
@@ -26,7 +33,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATASETS_DIR = REPO_ROOT / "datasets"
 REFERENCE_DIR = REPO_ROOT / "scripts" / "reference_data"
-OUTPUT_PATH = REPO_ROOT / "kaggle" / "build" / "romania_economic_indicators.csv"
+OUTPUT_PATH = REPO_ROOT / "build" / "romania_economic_indicators.csv"
 
 OUTPUT_COLUMNS = [
     "indicator",

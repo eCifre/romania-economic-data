@@ -4,6 +4,10 @@ kaggle.json
 KAGGLE_USERNAME
 KAGGLE_KEY
 
+# Hugging Face credentials — never commit these.
+HF_TOKEN
+.huggingface/
+
 # Python
 __pycache__/
 *.pyc
@@ -13,5 +17,7 @@ venv/
 # OS noise
 .DS_Store
 
-# Kaggle publish staging (assembled and removed by scripts/publish_kaggle.sh)
+# Publish staging (assembled and removed by the publish scripts each run —
+# never manually maintained, generated fresh from build/ every time).
 kaggle/.publish_stage/
+huggingface/build/

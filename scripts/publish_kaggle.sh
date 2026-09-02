@@ -19,7 +19,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 METADATA_FILE="$REPO_ROOT/kaggle/dataset-metadata.json"
-BUILD_FILE="$REPO_ROOT/kaggle/build/romania_economic_indicators.csv"
+BUILD_FILE="$REPO_ROOT/build/romania_economic_indicators.csv"
 
 mode="${1:-}"
 if [[ "$mode" != "create" && "$mode" != "version" ]]; then
@@ -54,29 +54,30 @@ fi
 
 if grep -q "DECISION-NEEDED" "$METADATA_FILE"; then
   echo "ERROR: kaggle/dataset-metadata.json still has the license placeholder." >&2
-  echo "See kaggle/LICENSE_NOTES.md — a license must be decided before publishing." >&2
+  echo "See LICENSE_NOTES.md — a license must be decided before publishing." >&2
   exit 1
 fi
 
-echo "== Build =="
-python3 "$REPO_ROOT/scripts/build_kaggle_dataset.py"
+echo "== Build (canonical, shared with every platform) =="
+python3 "$REPO_ROOT/scripts/build_canonical_dataset.py"
 
 echo
 echo "== Validate =="
 python3 "$REPO_ROOT/scripts/validate_dataset.py" "$BUILD_FILE"
 
 # dataset-metadata.json's resources[].path is "romania_economic_indicators.csv"
-# (flat, no subfolder) but the build writes to kaggle/build/ -- so assemble a
-# flat staging folder for `kaggle datasets ...` rather than pointing it at
-# kaggle/ directly, which would upload the CSV nested under "build/".
+# (flat, no subfolder) but the canonical build writes to build/ at the repo
+# root -- so assemble a flat staging folder for `kaggle datasets ...` rather
+# than pointing it at kaggle/ directly, which would upload the CSV nested
+# under a subfolder.
 STAGE_DIR="$REPO_ROOT/kaggle/.publish_stage"
 rm -rf "$STAGE_DIR"
 mkdir -p "$STAGE_DIR"
 cp "$METADATA_FILE" "$STAGE_DIR/"
 cp "$BUILD_FILE" "$STAGE_DIR/"
 cp "$REPO_ROOT/kaggle/README.md" "$STAGE_DIR/"
-cp "$REPO_ROOT/kaggle/DATA_DICTIONARY.md" "$STAGE_DIR/"
-cp "$REPO_ROOT/kaggle/LICENSE_NOTES.md" "$STAGE_DIR/"
+cp "$REPO_ROOT/DATA_DICTIONARY.md" "$STAGE_DIR/"
+cp "$REPO_ROOT/LICENSE_NOTES.md" "$STAGE_DIR/"
 
 echo
 echo "== Publish ($mode) =="
