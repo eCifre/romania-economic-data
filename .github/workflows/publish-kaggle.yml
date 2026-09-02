@@ -5,15 +5,10 @@ name: Publish to Kaggle (manual)
 # should be a deliberate choice each time, not an automatic side effect of
 # merging to main.
 #
-# Required repository secrets (Settings -> Secrets and variables -> Actions),
+# Required repository secret (Settings -> Secrets and variables -> Actions),
 # not currently configured:
-#   KAGGLE_USERNAME  — the Kaggle account or organization used to publish
-#   KAGGLE_KEY       — that account's Kaggle API key
-#
-# Also requires kaggle/dataset-metadata.json to have its two placeholders
-# resolved first (owner slug in "id", and a real license — see
-# kaggle/LICENSE_NOTES.md). scripts/publish_kaggle.sh checks both and will
-# fail the run with a clear message if either is still a placeholder.
+#   KAGGLE_API_TOKEN — API token for the Kaggle account used to publish
+#                       (kaggle.com/settings -> API -> Create New Token)
 
 on:
   workflow_dispatch:
@@ -45,8 +40,7 @@ jobs:
 
       - name: Publish
         env:
-          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
-          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           if [ "${{ inputs.mode }}" = "version" ]; then
             scripts/publish_kaggle.sh version "${{ inputs.message }}"

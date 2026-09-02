@@ -1,0 +1,55 @@
+name: Publish to Hugging Face (manual)
+
+# Deliberately manual-only (workflow_dispatch). This is NOT wired to run on
+# push, and NOT chained after Kaggle publishing — each platform publish is
+# a separate, deliberate, externally-visible action, not an automatic side
+# effect of merging to main or of publishing elsewhere.
+#
+# Required repository secret (Settings -> Secrets and variables -> Actions),
+# not currently configured:
+#   HF_TOKEN — a Hugging Face access token (huggingface.co/settings/tokens)
+#              for the ecifre organization, with write access to
+#              ecifre/romania-economic-indicators
+#
+# scripts/publish_huggingface.py skips the upload entirely (exits
+# successfully, no commit made) if the canonical export hasn't changed
+# since the last published version, unless --force is passed.
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Commit message (optional — auto-generated with today's date if left blank)"
+        required: false
+        type: string
+      force:
+        description: "Upload even if the canonical export is unchanged"
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install huggingface_hub pyarrow
+
+      - name: Publish
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          args=()
+          if [ -n "${{ inputs.message }}" ]; then
+            args+=(--message "${{ inputs.message }}")
+          fi
+          if [ "${{ inputs.force }}" = "true" ]; then
+            args+=(--force)
+          fi
+          python3 scripts/publish_huggingface.py "${args[@]}"
